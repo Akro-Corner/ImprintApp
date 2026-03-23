@@ -53,7 +53,7 @@ def product_card(title, price, description, img_url, producto):
         st.write(description)
         st.badge(f"**Precio:** {price}€", color="green")
         if st.button("Pedir", key=title):
-            st.session_state["local_pedido"] = ""
+            st.session_state.clear["local_pedido"]
             st.session_state["local_pedido"] = producto
             st.success(f"Added {title}!")
 
