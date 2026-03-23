@@ -3,17 +3,26 @@ from supabase import create_client, client
 from dotenv import load_dotenv
 import os
 
-st.markdown(
-    """
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+font_url = "https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap"
+font_name = "Sora"
 
-    html, body, [class*="css"]  {
-    font-family: 'Sora', sans-serif;
-    }
+st.markdown(
+    f"""
+    <style>
+    @import url('{font_url}');
+
+    /* This targets EVERY element in the app */
+    html, body, [class*="st-"], .main, .stMarkdown, p, h1, h2, h3, h4, h5, h6, label, span {{
+        font-family: '{font_name}', sans-serif !important;
+    }}
+    
+    /* Specifically targeting the sidebar if it's still being stubborn */
+    [data-testid="stSidebar"] {{
+        font-family: '{font_name}', sans-serif !important;
+    }}
     </style>
     """,
-    unsafe_allow_html=True,
+    unsafe_allow_html=True
 )
 
 # Usar Secrets si está en Streamlit Cloud, sino .env en local
