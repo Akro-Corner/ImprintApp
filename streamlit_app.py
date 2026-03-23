@@ -83,3 +83,7 @@ if st.button("Pedir"):
         st.success("¡Ya has pedido!")
     else:
         st.error("Rellena todo")
+if st.button("Borrar"):
+    email.value = ""
+    pedido.value = ""
+    st.session_state("local_pedido", "")
