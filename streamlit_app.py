@@ -72,7 +72,7 @@ email = st.text_input("Tu email")
 pedido = st.text_input("URL del modelo", value=st.session_state.get["local_pedido"])
 
 if st.button("Pedir"):
-    st.session_state.get["local_pedido"] = pedido
+    st.session_state.get("local_pedido", "") = pedido
 
     if pedido and email:
         supabase.table('todos').insert({
