@@ -40,7 +40,7 @@ def add_todo(pedido):
 
 st.header("Imprint")
 st.badge("Envíos 24-48h", color="green")
-st.write("Imprint es la mejor manera de obtener modelos 3D en tus\nmanos ya que tardamos menos de **24-48 horas** en entregarlo.\nTambién disponemos de\n**muchos colores como: azul, verde, beige, marrón, blanco y negro.\n\n ¡Disfrutad! 😀")
+st.write("Imprint es la mejor manera de obtener modelos 3D en tus\nmanos ya que tardamos menos de **24-48 horas** en entregarlo.\nTambién disponemos de\n**muchos colores como: azul, verde, beige, marrón, blanco y negro.**\n\n ¡Disfrutad! 😀")
 
 st.divider()
 
