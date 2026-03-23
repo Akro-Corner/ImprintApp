@@ -69,7 +69,7 @@ st.divider()
 #--------------------------------------------- Pedir
 
 email = st.text_input("Tu email")
-pedido = st.text_input("URL del modelo", value=st.session_state.get["local_pedido"])
+pedido = st.text_input("URL del modelo", value=st.session_state.get("local_pedido", ""))
 
 if st.button("Pedir"):
     st.session_state["local_pedido"] = pedido
