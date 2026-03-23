@@ -49,14 +49,14 @@ def product_card(title, price, description, img_url):
         st.image(img_url, use_container_width=True)
         st.subheader(title)
         st.write(description)
-        st.badge(f"**Price:** ${price}", color="green")
+        st.badge(f"**Price:** {price}€", color="green")
         if st.button("Add to Cart", key=title):
             st.success(f"Added {title}!")
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    product_card("Classic Watch", 120, "This is a simple description of a product\nwhich has still not been created, but still is going to be\nvery cool!", "https://via.placeholder.com/300")
+    product_card("Anillo Planetario", 3.99, "Este es un anillo antiestrés con 6 engranajes\n de precisión para dar mayor satisfacción al girar.\n", "https://makerworld.bblmw.com/makerworld/model/US35a69912f2a0b7/design/2024-11-05_e6abf7dcfba2.jpg?x-oss-process=image/resize,w_1000/format,webp")
 with col2:
     product_card("Wireless Buds", 80, "This is a simple description of a product\nwhich has still not been created, but still is going to be\nvery cool!", "https://via.placeholder.com/300")
 with col3:
