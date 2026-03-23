@@ -46,24 +46,24 @@ st.write("Imprint es la mejor manera de obtener modelos 3D en tus\nmanos ya que 
 
 st.divider()
 
-def product_card(title, price, description, img_url):
+def product_card(title, price, description, img_url, producto):
     with st.container(border=True):
         st.image(img_url, use_container_width=True)
         st.subheader(title)
         st.write(description)
         st.badge(f"**Precio:** {price}€", color="green")
         if st.button("Pedir", key=title):
-            pedido = "https://makerworld.com/es/models/760893-blade-heavy-duty-planetary-gears-fidget-spinner#profileId-695539"
+            st.session_state["local_pedido"] = producto
             st.success(f"Added {title}!")
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    product_card("Anillo Planetario", 3.99, "Este es un anillo antiestrés con 6 engranajes\n de precisión para dar mayor satisfacción al girar.\n", "https://makerworld.bblmw.com/makerworld/model/US35a69912f2a0b7/design/2024-11-05_e6abf7dcfba2.jpg?x-oss-process=image/resize,w_1000/format,webp")
+    product_card("Anillo Planetario", 3.99, "Este es un anillo antiestrés con 6 engranajes\n de precisión para dar mayor satisfacción al girar.\n", "https://makerworld.bblmw.com/makerworld/model/US35a69912f2a0b7/design/2024-11-05_e6abf7dcfba2.jpg?x-oss-process=image/resize,w_1000/format,webp", "https://makerworld.com/es/models/760893-blade-heavy-duty-planetary-gears-fidget-spinner#profileId-695539")
 with col2:
-    product_card("Wireless Buds", 80, "This is a simple description of a product\nwhich has still not been created, but still is going to be\nvery cool!", "https://via.placeholder.com/300")
+    product_card("Wireless Buds", 80, "This is a simple description of a product\nwhich has still not been created, but still is going to be\nvery cool!", "https://via.placeholder.com/300", "")
 with col3:
-    product_card("Leather Bag", 250, "This is a simple description of a product\nwhich has still not been created, but still is going to be\nvery cool!","https://via.placeholder.com/300")
+    product_card("Leather Bag", 250, "This is a simple description of a product\nwhich has still not been created, but still is going to be\nvery cool!","https://via.placeholder.com/300", "")
 
 st.divider()
 #--------------------------------------------- Pedir
@@ -79,5 +79,7 @@ if st.button("Pedir"):
             'estado': 'pendiente'
         }).execute()
         st.success("¡Ya has pedido!")
+    elif pedido == "":
+        pedido = st.session_state.get["local_pedido"]
     else:
         st.error("Rellena todo")
