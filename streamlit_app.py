@@ -54,6 +54,7 @@ def product_card(title, price, description, img_url, producto):
         st.badge(f"**Precio:** {price}€", color="green")
         if st.button("Pedir", key=title):
             st.session_state["local_pedido"] = producto
+            st.rerun()
             st.success(f"Added {title}!")
 
 col1, col2, col3 = st.columns(3)
@@ -83,7 +84,3 @@ if st.button("Pedir"):
         st.success("¡Ya has pedido!")
     else:
         st.error("Rellena todo")
-if st.button("Borrar"):
-    email.value = ""
-    pedido.value = ""
-    st.session_state("local_pedido", "")
