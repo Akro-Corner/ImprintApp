@@ -6,6 +6,8 @@ import os
 font_url = "https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap"
 font_name = "Sora"
 
+pedido = "Text"
+
 st.markdown(
     f"""
     <style>
@@ -49,8 +51,9 @@ def product_card(title, price, description, img_url):
         st.image(img_url, use_container_width=True)
         st.subheader(title)
         st.write(description)
-        st.badge(f"**Price:** {price}€", color="green")
-        if st.button("Add to Cart", key=title):
+        st.badge(f"**Precio:** {price}€", color="green")
+        if st.button("Pedir", key=title):
+            pedido = "https://makerworld.com/es/models/760893-blade-heavy-duty-planetary-gears-fidget-spinner#profileId-695539"
             st.success(f"Added {title}!")
 
 col1, col2, col3 = st.columns(3)
